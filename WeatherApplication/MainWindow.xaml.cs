@@ -24,5 +24,19 @@ namespace WeatherApplication
         {
             InitializeComponent();
         }
+        private void btn1_Click(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new Weather();
+        }
+
+        private void btn2_Click(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new Charts();
+        }
+
+        private void btn3_Click(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new Info();
+        }
     }
 }

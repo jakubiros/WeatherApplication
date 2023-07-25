@@ -18,7 +18,7 @@ namespace WeatherApplication
     /// <summary>
     /// Logika interakcji dla klasy Info.xaml
     /// </summary>
-    public partial class Info : Page
+    public partial class Info : UserControl
     {
         public Info()
         {

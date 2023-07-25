@@ -18,7 +18,7 @@ namespace WeatherApplication
     /// <summary>
     /// Logika interakcji dla klasy Charts.xaml
     /// </summary>
-    public partial class Charts : Page
+    public partial class Charts : UserControl
     {
         public Charts()
         {

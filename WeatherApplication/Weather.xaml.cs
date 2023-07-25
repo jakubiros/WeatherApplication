@@ -18,7 +18,7 @@ namespace WeatherApplication
     /// <summary>
     /// Logika interakcji dla klasy Weather.xaml
     /// </summary>
-    public partial class Weather : Page
+    public partial class Weather : UserControl
     {
         public Weather()
         {
