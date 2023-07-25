@@ -23,6 +23,7 @@ namespace WeatherApplication
         public MainWindow()
         {
             InitializeComponent();
+            CC.Content = new Weather();
         }
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
