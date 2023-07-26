@@ -22,5 +22,25 @@
             <Button x:Name="refresh_btn" Height="50" VerticalAlignment="Top" Width="50" Margin="0,0,0,0" Content="Odśwież"></Button>
             <Button x:Name="login_btn" Height="50" VerticalAlignment="Top" Width="50" Margin="0,0,0,0" Content="Login"></Button>
         </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock x:Name="tempBox" Text="20C" HorizontalAlignment="Center" FontSize="80" Margin="0,0,55,0"></TextBlock>
+            <TextBlock x:Name="txtWeatherBox" Text="Słonecznie" HorizontalAlignment="Center" FontSize="30" Margin="0,0,55,0"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="pressBox" Text="1013hPa" FontSize="22" Margin="30,0,0,0"></TextBlock>
+                <TextBlock x:Name="windBox" Text="15km/h" FontSize="22" Margin="30,0,0,0"></TextBlock>
+                <TextBlock x:Name="windDirBox" Text="90 W" FontSize="22" Margin="30,0,0,0"></TextBlock>
+                <TextBlock x:Name="cloudsCoveBox" Text="25%" FontSize="22" Margin="30,0,0,0"></TextBlock>
+                <TextBlock x:Name="sunRiseBox" Text="07:30" FontSize="22" Margin="30,0,0,0"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <TextBlock x:Name="humBox" Text="65%" FontSize="22" Margin="30,0,0,0"></TextBlock>
+                <TextBlock x:Name="visiblityBox" Text="30km" FontSize="22" Margin="30,0,0,0"></TextBlock>
+                <TextBlock x:Name="feelTempBox" Text="23C" FontSize="22" Margin="30,0,0,0"></TextBlock>
+                <TextBlock x:Name="rainProbabilityBox" Text="5%" FontSize="22" Margin="30,0,0,0"></TextBlock>
+                <TextBlock x:Name="sunSetBox" Text="18:30" FontSize="22" Margin="30,0,0,0"></TextBlock>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
