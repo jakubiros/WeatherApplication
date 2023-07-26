@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeatherApplicationLibrary;
 
 namespace WeatherApplication
 {
@@ -23,6 +25,16 @@ namespace WeatherApplication
         public Weather()
         {
             InitializeComponent();
+        }
+
+        private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void search_btn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
