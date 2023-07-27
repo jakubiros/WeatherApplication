@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace WeatherApplicationLibrary
 {
+    /// <summary>
+    /// Pobiera i przechowuje dane z pliku JSON w typie string 
+    /// </summary>
     public class GetJsonData
     {
         public string jsonStr { get; init; }
