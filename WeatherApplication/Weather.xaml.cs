@@ -29,7 +29,7 @@ namespace WeatherApplication
 
         private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+              
         }
 
         private void search_btn_Click(object sender, RoutedEventArgs e)
