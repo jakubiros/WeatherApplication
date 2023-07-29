@@ -24,6 +24,7 @@ namespace WeatherApplicationLibrary
             public string address_line2 { get; set; }
             public string category { get; set; }
             public string result_type { get; set; }
+            public Timezone timezone { get; set; }
         }
         public class Datasource
         {
@@ -32,5 +33,16 @@ namespace WeatherApplicationLibrary
             public string license { get; set; }
             public string url { get; set; }
         }
+        public class Timezone
+        {
+            public string name { get; set; }
+            public string offset_STD { get; set; }
+            public int offset_STD_seconds { get; set; }
+            public string offset_DST { get; set; }
+            public int offset_DST_seconds { get; set; }
+            public string abbreviation_STD { get; set; }
+            public string abbreviation_DST { get; set; }
+        }
+
     }
 }

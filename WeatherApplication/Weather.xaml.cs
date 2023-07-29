@@ -26,10 +26,11 @@ namespace WeatherApplication
         {
             InitializeComponent();
         }
+        protected static UnpackLocationData cityCoords;
         private WeatherData getForecast(string input)
         {
             var address=input.Split(' ');
-            UnpackLocationData cityCoords;
+            //UnpackLocationData cityCoords;
             try
             {
                 cityCoords = new UnpackLocationData(address[0], address[1]);
@@ -45,7 +46,7 @@ namespace WeatherApplication
         private void updateUI()
         {
             WeatherData forecast = getForecast(searchBar.Text);
-            actualForecast.Text = $"{searchBar.Text.Split(' ')[0]}, {DateTime.Now.ToString("HH:mm")}";
+            actualForecast.Text = $"{searchBar.Text.Split(' ')[0]}, {DateTime.Now.ToUniversalTime().AddSeconds(cityCoords.locationInfo.results[0].timezone.offset_DST_seconds).ToString("HH:mm")}";
             tempBox.Text = forecast.hourly.temperature_2m[0].ToString();
             pressBox.Text = forecast.hourly.pressure_msl[0].ToString();
             windBox.Text = forecast.hourly.windspeed_10m[0].ToString();
