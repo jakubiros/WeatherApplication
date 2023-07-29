@@ -42,6 +42,20 @@ namespace WeatherApplication
             UnpackWeatherData forecast = new UnpackWeatherData(cityCoords.locationInfo.results[0].lon, cityCoords.locationInfo.results[0].lat);
             return forecast.weatherInfo;
         }
+        private void updateUI()
+        {
+            WeatherData forecast = getForecast(searchBar.Text);
+            actualForecast.Text = $"{searchBar.Text.Split(' ')[0]}, {DateTime.Now.ToString("HH:mm")}";
+            tempBox.Text = forecast.hourly.temperature_2m[0].ToString();
+            pressBox.Text = forecast.hourly.pressure_msl[0].ToString();
+            windBox.Text = forecast.hourly.windspeed_10m[0].ToString();
+            //windDirBox.Text = forecast.hourly.
+            cloudsCoveBox.Text = forecast.hourly.cloudcover[0].ToString();
+            //humBox.Text=forecast.hourly
+            //rainProbabilityBox.Text=forecast.hourly
+            sunRiseBox.Text = forecast.daily.sunrise[0].ToString();
+            sunSetBox.Text = forecast.daily.sunset[0].ToString();
+        }
         private void search_btn_Click(object sender, RoutedEventArgs e)
         {
 
@@ -51,8 +65,7 @@ namespace WeatherApplication
         {
             if (e.Key == Key.Enter)
             {
-                WeatherData forecast = getForecast(searchBar.Text);
-                actualForecast.Text = searchBar.Text.Split(' ')[0];
+                updateUI();
             }
         }
     }
