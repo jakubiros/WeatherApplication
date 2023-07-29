@@ -20,7 +20,7 @@ namespace WeatherApplicationLibrary
 
             locationInfo = JsonSerializer.Deserialize<GetLocationData>(data.jsonStr);
         }
-        public UnpackLocationData(string city,string country):this(city)
+        public UnpackLocationData(string city,string? country=null):this(city)
         {
             GetJsonData data = new GetJsonData($"https://api.geoapify.com/v1/geocode/search?city={city}&country={country}&format=json&apiKey=800de78f48284bb6be82a82553423646");
 

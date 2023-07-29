@@ -26,15 +26,34 @@ namespace WeatherApplication
         {
             InitializeComponent();
         }
-
-        private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
+        private WeatherData getForecast(string input)
         {
-              
-        }
+            var address=input.Split(' ');
+            UnpackLocationData cityCoords;
+            try
+            {
+                cityCoords = new UnpackLocationData(address[0], address[1]);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                cityCoords = new UnpackLocationData(address[0]);
+            }
 
+            UnpackWeatherData forecast = new UnpackWeatherData(cityCoords.locationInfo.results[0].lon, cityCoords.locationInfo.results[0].lat);
+            return forecast.weatherInfo;
+        }
         private void search_btn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void searchBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                WeatherData forecast = getForecast(searchBar.Text);
+                actualForecast.Text = searchBar.Text.Split(' ')[0];
+            }
         }
     }
 }

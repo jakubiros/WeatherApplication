@@ -15,7 +15,7 @@ namespace WeatherApplicationLibrary
         public WeatherData? weatherInfo { get; init; }
         public UnpackWeatherData(float lon, float lat)
         {
-            GetJsonData data=new GetJsonData($"https://api.open-meteo.com/v1/forecast?latitude={lat.ToString()}&longitude={lon.ToString()}&hourly=temperature_2m,precipitation,pressure_msl,cloudcover,windspeed_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&timezone=Europe%2FBerlin&forecast_days=3&models=best_match");
+            GetJsonData data=new GetJsonData($"https://api.open-meteo.com/v1/forecast?latitude={lat.ToString().Replace(",", ".")}&longitude={lon.ToString().Replace(",", ".")}&hourly=temperature_2m,precipitation,pressure_msl,cloudcover,windspeed_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&timezone=Europe%2FBerlin&forecast_days=3&models=best_match");
 
             weatherInfo= JsonSerializer.Deserialize<WeatherData>(data.jsonStr);
         }
