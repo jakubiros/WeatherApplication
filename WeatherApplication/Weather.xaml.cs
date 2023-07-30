@@ -59,7 +59,7 @@ namespace WeatherApplication
         }
         private void search_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            updateUI();
         }
 
         private void searchBar_KeyDown(object sender, KeyEventArgs e)
