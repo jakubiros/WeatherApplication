@@ -14,18 +14,11 @@ namespace WeatherApplicationLibrary
     public class UnpackLocationData
     {
         public GetLocationData? locationInfo { get; init; }
-        public UnpackLocationData(string city)
+        public UnpackLocationData(string adress)
         {
-            GetJsonData data = new GetJsonData($"https://api.geoapify.com/v1/geocode/search?city={city}&format=json&apiKey=800de78f48284bb6be82a82553423646");
+            GetJsonData data = new GetJsonData($"https://api.geoapify.com/v1/geocode/search?text={adress}&format=json&apiKey=800de78f48284bb6be82a82553423646");
 
             locationInfo = JsonSerializer.Deserialize<GetLocationData>(data.jsonStr);
         }
-        public UnpackLocationData(string city,string? country):this(city)
-        {
-            GetJsonData data = new GetJsonData($"https://api.geoapify.com/v1/geocode/search?city={city}&country={country}&format=json&apiKey=800de78f48284bb6be82a82553423646");
-
-            locationInfo = JsonSerializer.Deserialize<GetLocationData>(data.jsonStr);
-        }
-
     }
 }

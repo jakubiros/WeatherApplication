@@ -29,16 +29,9 @@ namespace WeatherApplication
         protected static UnpackLocationData cityCoords;
         private WeatherData getForecast(string input)
         {
-            var address=input.Split(' ');
+            var address=input.Replace(" ","%");
             //UnpackLocationData cityCoords;
-            try
-            {
-                cityCoords = new UnpackLocationData(address[0], address[1]);
-            }
-            catch (IndexOutOfRangeException)
-            {
-                cityCoords = new UnpackLocationData(address[0]);
-            }
+            cityCoords = new UnpackLocationData(address);
 
             UnpackWeatherData forecast = new UnpackWeatherData(cityCoords.locationInfo.results[0].lon, cityCoords.locationInfo.results[0].lat);
             return forecast.weatherInfo;
@@ -50,10 +43,10 @@ namespace WeatherApplication
             tempBox.Text = forecast.hourly.temperature_2m[0].ToString();
             pressBox.Text = forecast.hourly.pressure_msl[0].ToString();
             windBox.Text = forecast.hourly.windspeed_10m[0].ToString();
-            //windDirBox.Text = forecast.hourly.
+            windDirBox.Text = forecast.hourly.winddirection_10m[0].ToString();
             cloudsCoveBox.Text = forecast.hourly.cloudcover[0].ToString();
-            //humBox.Text=forecast.hourly
-            //rainProbabilityBox.Text=forecast.hourly
+            humBox.Text = forecast.hourly.relativehumidity_2m[0].ToString();
+            rainProbabilityBox.Text = forecast.hourly.precipitation_probability[0].ToString();
             sunRiseBox.Text = forecast.daily.sunrise[0].ToString();
             sunSetBox.Text = forecast.daily.sunset[0].ToString();
         }
