@@ -13,7 +13,7 @@ namespace WeatherApplicationLibrary
         private int numOfDays => data.hourly.time.Length/24;
         private List<Dictionary<string,List<Dictionary<string, string>>>> hourlyDayForecastList = new List<Dictionary<string,List<Dictionary<string, string>>>>();
         //public Dictionary<TimeOnly,Dictionary<List<string>,Array>> hourlyDayForecast { get; private set; }
-        private List<string> hourlyAttributes = new List<string>();
+        public List<string> hourlyAttributes = new List<string>();
         private List<string[]> forecastValues = new List<string[]>();
 
         public OneDayForecast(WeatherData forecast, int dayOfForecast)
@@ -60,11 +60,10 @@ namespace WeatherApplicationLibrary
                 {
                     var d= new Dictionary<string,string>();
                     var temp = forecastValues[i];
+                    //hourlyAttr zawiera time czyli 1 elem więcej niż temp, usunąc
                     d.Add(hourlyAttributes[i], temp[startInd]);
                     dictList.Add(d);
                 }
-                //temp.Add(hourlyAttributes[startInd]);
-                //temp.Add(temperature_2m[startInd].ToString());
                 var tempDict = new Dictionary<string, List<Dictionary<string, string>>>();
                 tempDict.Add(time[startInd].Split("T")[1], dictList);
                 hourlyDayForecastList.Add(tempDict);

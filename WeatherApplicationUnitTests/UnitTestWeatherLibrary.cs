@@ -14,5 +14,17 @@ namespace WeatherApplicationUnitTests
             GetJsonData data = new GetJsonData(url);
             Assert.IsNotNull(data);
         }
+
+        [TestMethod]
+        public void ListContainsProperHourlyAttributes()
+        {
+            WeatherData data = new UnpackWeatherData((float)21.1593832,(float)49.65829).weatherInfo;
+            OneDayForecast oneDay = new OneDayForecast(data, 0);
+            List<string> properHourlyAttributes = new List<string> {"time", "temperature_2m", "relativehumidity_2m", "apparent_temperature",
+            "precipitation_probability", "pressure_msl", "cloudcover", "visibility", "windspeed_10m", "winddirection_10m"};
+            Assert.AreEqual(properHourlyAttributes.Count,oneDay.hourlyAttributes.Count);
+            
+        }
     }
+
 }
